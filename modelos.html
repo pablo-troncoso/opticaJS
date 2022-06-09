@@ -7,6 +7,13 @@
     <link rel="shortcut icon" href="./img/favicon-32x32.png">
     <link rel="stylesheet" href="estilo.css">
     <title>Gran Óptica Gran!</title>
+    <style>
+   
+      table thead{
+        background-color: rgb(255, 255, 255);
+        color: rgb(189, 0, 177);
+      }
+    </style>
   
 
 
@@ -28,6 +35,20 @@
   </header>
   <hr>
   <main>
+  
+    <div class=""container mt-4 shadow-lg p3 mb-5 bg-body rounded">
+         <table class=""table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+              </tr>
+            </thead>
+            <tbody id=""data">
+            </tbody>
+          </table>
+    </div>
     <div>
       <ul>
         <li class="lentes">Deportivo</li>
@@ -44,7 +65,18 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  
 
+<script>
+  let url = "https://jsonplaceholder.typicode.com/users"
+  fetch(url)
+      .then(response => response.json())
+      .then(data => mostrarData(data))
+      .catch(error=> console.log(error))
 
+  const mostrarData =(data) => {
+    console.log(data)
+  }
+
+</script>
 </body>
 
 </html>

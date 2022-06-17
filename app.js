@@ -1,6 +1,8 @@
 const items = document.getElementById('items')
 const templateCard = document.getElementById('template-card').content
 const fragment = document.createDocumentFragment()
+let carrito = {}
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchData ()
 })
@@ -33,6 +35,21 @@ const pintarCards = data => {
 }
 
 const addCarrito = e => {
-    console.log(e.target)
-    console.log(e.target.classList.contains('btn-dark'))
+   // console.log(e.target)
+   // console.log(e.target.classList.contains('btn-dark'))
+    if (e.target.classList.contains('btn-dark')){
+        setCarrito(e.target.parentElement)
+
+    }
+    e.stopPropagation()
+}
+const setCarrito = objeto =>{
+    console.log(objeto)
+    const producto = {
+        id: objeto.querySelector('.btn-dark').dataset.id,
+        title: objeto.querySelector('h5').textContent,
+        precio: objeto.querySelector('p').textContent
+    }
+    console.log (producto)
+
 }

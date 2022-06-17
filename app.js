@@ -4,7 +4,9 @@ const fragment = document.createDocumentFragment()
 document.addEventListener('DOMContentLoaded', () => {
     fetchData ()
 })
-
+items.addEventListener('click', e => {
+    addCarrito(e)
+})
 
 const fetchData = async () => {
     try {
@@ -28,4 +30,9 @@ const pintarCards = data => {
         fragment.appendChild(clone)
     })
     items.appendChild(fragment)
+}
+
+const addCarrito = e => {
+    console.log(e.target)
+    console.log(e.target.classList.contains('btn-dark'))
 }
